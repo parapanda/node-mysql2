@@ -1,5 +1,5 @@
 {
-  "name": "mysql2",
+  "name": "mysql3",
   "version": "1.0.0-rc.1",
   "description": "fast mysql driver. Implements core protocol, prepared statements, ssl and compression in native JS",
   "main": "index.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sidorares/node-mysql2"
+    "url": "https://github.com/parapanda/node-mysql3"
   },
   "keywords": [
     "mysql",

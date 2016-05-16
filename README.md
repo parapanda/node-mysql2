@@ -1,4 +1,4 @@
-#node-mysql2
+#node-mysql3
 
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][downloads-url]
@@ -6,16 +6,16 @@
 [![Linux Build][travis-image]][travis-url]
 [![Windows Build][appveyor-image]][appveyor-url]
 
-Mysql client for node.js. Written in native JavaScript and aims to be mostly api compatible with [node-mysql](https://github.com/felixge/node-mysql)
+Mysql client for node.js. Written in native JavaScript and aims to be mostly api compatible with [node-mysql](https://github.com//node-mysql)
 
-[![NPM](https://nodei.co/npm/mysql2.png?downloads=true&stars=true)](https://nodei.co/npm/mysql2/)
-[![NPM](https://nodei.co/npm-dl/mysql2.png?months=6)](https://nodei.co/npm/mysql2/)
+[![NPM](https://nodei.co/npm/mysql3.png?downloads=true&stars=true)](https://nodei.co/npm/mysql3/)
+[![NPM](https://nodei.co/npm-dl/mysql3.png?months=6)](https://nodei.co/npm/mysql3/)
 
 ## Features
 
  In addition to client-side query/escape and connection pooling
 
-  - [fast](https://gist.github.com/sidorares/ffe9ee9c423f763e3b6b)
+  - [fast](https://gist.github.com/parapanda/node-mysql3)
   - MySQL server API for proxies and mocks
   - SSL and compression
   - prepared statements
@@ -117,7 +117,7 @@ connection.query({
 
 ```js
 var net        = require('net');
-var mysql      = require('mysql2');
+var mysql      = require('mysql3');
 var shape      = require('shaper');
 var connection = mysql.createConnection({
    user: 'test',
@@ -126,10 +126,10 @@ var connection = mysql.createConnection({
 });
 connection.query('SELECT 1+1 as test1', console.log);
 ```
-`stream` also can be a function. In that case function result has to be duplex stream, and it is used for connection transport. This is required if you connect pool using custom transport as new pooled connection needs new stream. [Example](https://github.com/sidorares/node-mysql2/issues/80) connecting over socks5 proxy:
+`stream` also can be a function. In that case function result has to be duplex stream, and it is used for connection transport. This is required if you connect pool using custom transport as new pooled connection needs new stream. [Example](https://github.com/parapanda/node-mysql3/issues/80) connecting over socks5 proxy:
 
 ```js
-var mysql      = require('mysql2');
+var mysql      = require('mysql3');
 var SocksConnection = require('socksjs');
 var pool = mysql.createPool({
   database: 'test',
@@ -161,7 +161,7 @@ DECIMAL and NEWDECIMAL types always returned as string unless you pass this conf
 Simple select:
 
 ```js
-var mysql      = require('mysql2');
+var mysql      = require('mysql3');
 var connection = mysql.createConnection({ user: 'test', database: 'test'});
 
 connection.query('SELECT 1+1 as test1', function(err, rows) {
@@ -172,7 +172,7 @@ connection.query('SELECT 1+1 as test1', function(err, rows) {
 Prepared statement and parameters:
 
 ```js
-var mysql      = require('mysql2');
+var mysql      = require('mysql3');
 var connection = mysql.createConnection({ user: 'test', database: 'test'});
 
 connection.execute('SELECT 1+? as test1', [10], function(err, rows) {
@@ -184,7 +184,7 @@ Connecting over encrypted connection:
 
 ```js
 var fs         = require('fs');
-var mysql      = require('mysql2');
+var mysql      = require('mysql3');
 var connection = mysql.createConnection({
    user: 'test',
    database: 'test',
@@ -199,7 +199,7 @@ connection.query('SELECT 1+1 as test1', console.log);
 You can use 'Amazon RDS' string as value to ssl property to connect to Amazon RDS mysql over ssl (in that case http://s3.amazonaws.com/rds-downloads/mysql-ssl-ca-cert.pem CA cert is used)
 
 ```js
-var mysql      = require('mysql2');
+var mysql      = require('mysql3');
 var connection = mysql.createConnection({
    user: 'foo',
    password: 'bar',
@@ -217,7 +217,7 @@ conn.query('show status like \'Ssl_cipher\'', function(err, res) {
 Simple mysql proxy server:
 
 ```js
-var mysql = require('mysql2');
+var mysql = require('mysql3');
 
 var server = mysql.createServer();
 server.listen(3307);
@@ -298,13 +298,13 @@ events:
   - constants, sql parameters interpolation, pool, connection config class taken from [node-mysql](https://github.com/felixge/node-mysql) (I tried to preserve git history)
   - SSL upgrade code based on @TooTallNate [code](https://gist.github.com/TooTallNate/848444)
   - Secure connection / compressed connection api flags compatible to [mariasql](https://github.com/mscdex/node-mariasql/) client.
-  - [contributors](https://github.com/sidorares/node-mysql2/graphs/contributors)
+  - [contributors](https://github.com/parapanda/node-mysql3/graphs/contributors)
 
 ## Benchmarks
   - https://gist.github.com/sidorares/ffe9ee9c423f763e3b6b
   - `npm run benchmarks`
   - [node-mysql-benchmarks](https://github.com/mscdex/node-mysql-benchmarks)
-  - try to run example [benchmarks](https://github.com/sidorares/node-mysql2/tree/master/benchmarks) on your system
+  - try to run example [benchmarks](https://github.com/parapanda/node-mysql3/tree/master/benchmarks) on your system
 
 ## Examples using MySQL server API:
 
@@ -335,13 +335,11 @@ TODO in order of importance:
   - performance improvements
   - features
 
-[npm-image]: https://img.shields.io/npm/v/mysql2.svg
-[npm-url]: https://npmjs.org/package/mysql2
-[node-version-image]: http://img.shields.io/node/v/mysql2.svg
+[npm-image]: https://img.shields.io/npm/v/mysql3.svg
+[npm-url]: https://npmjs.org/package/mysql3
 [node-version-url]: http://nodejs.org/download/
-[travis-image]: https://img.shields.io/travis/sidorares/node-mysql2/master.svg?label=linux
-[travis-url]: https://travis-ci.org/sidorares/node-mysql2
-[appveyor-image]: https://img.shields.io/appveyor/ci/sidorares/node-mysql2/master.svg?label=windows
-[appveyor-url]: https://ci.appveyor.com/project/sidorares/node-mysql2
-[downloads-image]: https://img.shields.io/npm/dm/mysql2.svg
-[downloads-url]: https://npmjs.org/package/mysql2
+[travis-image]: https://img.shields.io/travis/parapanda/node-mysql3/master.svg?label=linux
+[travis-url]: https://travis-ci.org/parapanda/node-mysql3
+[appveyor-image]: https://img.shields.io/appveyor/ci/parapanda/node-mysql3/master.svg?label=windows
+[appveyor-url]: https://ci.appveyor.com/project/parapanda/node-mysql3
+[downloads-url]: https://npmjs.org/package/mysql3

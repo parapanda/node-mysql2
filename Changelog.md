@@ -1,4 +1,4 @@
-1.0.0-rc.1 (17/02/2016)
+1.0.0 (16/05/2016)
 
 - (semver-major) remove 'number of statements'
    from callback parameter                                   #192, #266, #45, #46
